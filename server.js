@@ -59,9 +59,9 @@ function getClientAddress(req) {
 function processRequest(req, res) {
     addCORSHeaders(req, res);
 
-    // Return options pre-flight requests right away
+    // Return options pre-flight requests right away with 200 status code
     if (req.method.toUpperCase() === "OPTIONS") {
-        return writeResponse(res, 204);
+        return writeResponse(res, 200);
     }
 
     var result = config.fetch_regex.exec(req.url);
